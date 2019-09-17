@@ -21,8 +21,8 @@ var listingSchema = new Schema({
     longitude: Number
   },
   address: String,
-  //created_at: Date,
-  //updated_at: Date
+  created_at: Date,
+  updated_at: Date
 
 });
 
