@@ -17,25 +17,13 @@ class App extends React.Component {
 
   filterUpdate(value) {
     //Here you will need to set the filterText property of state to the value passed into this function
-    this.setState({
-      filterText: value
-    });
+    this.setState({ filterText: value });
   }
 
   selectedUpdate(id) {
     //Here you will need to update the selectedBuilding property of state to the id passed into this function
     this.setState({ selectedBuilding: id });
   }
-
-  deleteByID(){
-    var listings = this.state.listings.filter(
-        listing => {
-      return listing.id !== this.state.selectedBuilding.id
-    })
-    this.setState({
-      listings: listings
-    })
-}
 
   addBuilding(newBuilding) {
     var count = 1;
@@ -67,9 +55,14 @@ class App extends React.Component {
       .map(value => { return value })
       .concat(curDirectory)
 
-    this.setState({
-      listings: newDirectory
+    this.setState({ listings: newDirectory })
+  }
+
+  deleteByID() {
+    var listings = this.state.listings.filter(listing => {
+      return listing.id !== this.state.selectedBuilding.id
     })
+    this.setState({ listings: listings })
   }
 
   render() {
@@ -77,7 +70,7 @@ class App extends React.Component {
     return (
       <div className="bg">
         <div className="row">
-          <h1>UF Directory App</h1>
+          <header>UF Directory App</header>
         </div>
 
         <Search
@@ -106,7 +99,7 @@ class App extends React.Component {
               <ViewBuilding
                 data={this.state.listings}
                 selectedUpdate={this.state.selectedBuilding}
-                deleteByID = {this.deleteByID.bind(this)}
+                deleteByID={this.deleteByID.bind(this)}
               />
               <AddBuilding
                 addBuilding={this.addBuilding.bind(this)}
