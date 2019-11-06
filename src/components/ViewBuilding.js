@@ -3,10 +3,10 @@ import "../App.css"
 
 class ViewBuilding extends React.Component {
 	render() {
-		const currentBuilding = this.props.data.find(selected => {
+		const curBuilding = this.props.data.find(selected => {
 			return selected.id === this.props.selectedUpdate.id
 		})
-		if (currentBuilding === undefined)
+		if (curBuilding === undefined)
 			return (
 				<div>
 					<p>
@@ -15,18 +15,18 @@ class ViewBuilding extends React.Component {
 					</p>
 				</div>
 			);
-		else if (currentBuilding.coordinates !== undefined)
+		else if (curBuilding.coordinates !== undefined)
 			return (
 				<div>
 					<p>
-						<b>NAME: </b> {currentBuilding.name}
+						<b>NAME: </b> {curBuilding.name}
 						<br />
-						<b>CODE: </b> {currentBuilding.code}
+						<b>CODE: </b> {curBuilding.code}
 						<br />
-						<b>ADDRESS: </b> {currentBuilding.address}
+						<b>ADDRESS: </b> {curBuilding.address}
 						<br />
 						<b>COORDINATES: </b>
-						<br />{currentBuilding.coordinates.latitude}, {currentBuilding.coordinates.longitude}
+						<br />{curBuilding.coordinates.latitude}, {curBuilding.coordinates.longitude}
 						<br />
 						<b>  <button className="Button" type="button" value="Remove Building" onClick={() => this.props.deleteByID()}>Remove Building</button> </b>
 					</p>
@@ -35,9 +35,9 @@ class ViewBuilding extends React.Component {
 		else return (
 			<div>
 				<p>
-					<b>NAME: </b> {currentBuilding.name}
+					<b>NAME: </b> {curBuilding.name}
 					<br />
-					<b>CODE: </b> {currentBuilding.code}
+					<b>CODE: </b> {curBuilding.code}
 					<br />
 					<b>ADDRESS: </b> None
 						<br />
