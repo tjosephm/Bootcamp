@@ -51,11 +51,11 @@ class App extends React.Component {
       }
     }
 
-    const newDirectory = this.state.listings
+    const newDir = this.state.listings
       .map(value => { return value })
       .concat(curDirectory)
 
-    this.setState({ listings: newDirectory })
+    this.setState({ listings: newDir })
   }
 
   deleteByID() {
